@@ -23,12 +23,12 @@ class login{
             $tok = new jwt_token();
             $jwt = $tok->getToken($uid, $username, $domainName, $secret_key, $start_time, $valid_from, $expire_at, $algo);
             $output = array('status' => 'login ok', 'token' => $jwt);
-            print_r(json_encode($output));
+            return json_encode($output);
         }
             
         else{
             $output = array('status' => 'login failed', 'reson' => 'wrong credentials.');
-            print_r(json_encode($output));
+            return json_encode($output);
         }
     }
 }

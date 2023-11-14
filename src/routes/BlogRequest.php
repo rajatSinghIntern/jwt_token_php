@@ -16,10 +16,10 @@ class BlogRequest{
         $out = $blogs->getBlogs($uid);
     
         if($out != 0){
-            print_r(json_encode($out));
+            return(json_encode($out));
         } else{
             $output = array('status' => 'failed', 'reason' => 'something went wrong');
-            print_r(json_encode($output));
+            return(json_encode($output));
         }    
     }
 }

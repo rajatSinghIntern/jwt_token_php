@@ -10,7 +10,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $pass = $_REQUEST['password'];
 
     $l = new login();
-    $l->doLogin($username, $pass);
+    $res = $l->doLogin($username, $pass);
+    print_r($res);
 }
 else if($_SERVER['REQUEST_METHOD'] === 'GET'){
     $headers = getallheaders();
@@ -20,7 +21,8 @@ else if($_SERVER['REQUEST_METHOD'] === 'GET'){
     }
     $token = $headers["Authorization"];
     $b = new BlogRequest();
-    $b->getBlog($token);
+    $res = $b->getBlog($token);
+    print_r($res);
 }
 else{
     print_r(json_encode(array('status'=>'failed request', 'message'=>'request type not allowed!')));
